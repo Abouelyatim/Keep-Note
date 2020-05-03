@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/note_list_fragment"
+    tools:ignore="UnusedNavigation">
+    <fragment
+        android:id="@+id/noteAddEdit"
+        android:name="com.example.noteexo4.ui.noteAddEdit.NoteAddEdit"
+        android:label="note_add_edit_fragment"
+        tools:layout="@layout/note_add_edit_fragment" >
+        <action
+            android:id="@+id/action_noteAddEdit_to_note_list_fragment"
+            app:destination="@id/note_list_fragment" />
+        <argument
+            android:name="titre"
+            app:argType="string"
+            android:defaultValue="titre" />
+        <argument
+            android:name="text"
+            app:argType="string"
+            android:defaultValue="text" />
+        <argument
+            android:name="date"
+            app:argType="string"
+            android:defaultValue="00-00-00" />
+        <argument
+            android:name="color"
+            app:argType="string"
+            android:defaultValue="ffffff" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/note_list_fragment"
+        android:name="com.example.noteexo4.ui.noteList.NoteList"
+        tools:layout="@layout/note_list_fragment">
+        <action
+            android:id="@+id/action_note_list_fragment_to_noteAddEdit"
+            app:destination="@id/noteAddEdit" />
+    </fragment>
+
+</navigation>
